@@ -1,6 +1,7 @@
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.Socket;
 import java.util.concurrent.ConcurrentLinkedDeque;
 
@@ -20,7 +21,13 @@ public class ClientHandler {
         counter++;
     }
 
+    public String getUId() {
+        return "User" + counter;
+    }
 
+    public InputStream getStream() {
+        return in;
+    }
 
     public String readMessage() throws IOException {
         return in.readUTF();
